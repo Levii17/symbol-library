@@ -1,4 +1,3 @@
-```
 # Electrical Symbols Preview
 
 A web-based library showcasing **electrical schematic symbols** that comply with South African standards (SANS) and common international conventions.  
