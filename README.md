@@ -3,12 +3,12 @@
 A web-based library showcasing **electrical schematic symbols** that comply with South African standards (SANS) and common international conventions.  
 This project provides a visual reference for engineers, electricians, students, and hobbyists working with electrical diagrams.
 
-## 🌐 Live Demo
+## Live Demo
 View the project here: [Electrical Symbols Preview](https://levii17.github.io/symbol-library/)
 
 ---
 
-## 📖 Overview
+## Overview
 The **Electrical Symbols Preview** is designed to:
 - Provide a **quick visual reference** for common electrical symbols.
 - Help ensure **consistency and compliance** in schematic drawings.
@@ -16,7 +16,7 @@ The **Electrical Symbols Preview** is designed to:
 
 ---
 
-## 📋 Features
+## Features
 - **Categorized symbol library** for easy navigation:
   - Circuit Breakers
   - Isolators
@@ -36,7 +36,7 @@ The **Electrical Symbols Preview** is designed to:
 
 ---
 
-## 🖼️ Symbol Previews
+## Symbol Previews
 
 ### Circuit Breakers
 ![Circuit Breakers Preview](docs/previews/circuit-breakers.png)
@@ -52,12 +52,12 @@ The **Electrical Symbols Preview** is designed to:
 
 ---
 
-## 🌙 Dark Theme Showcase
+## Dark Theme Showcase
 ![Dark Theme Preview](docs/previews/dark-theme.png)
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 - **HTML5** – Structure and semantic layout.
 - **CSS3 / SASS** – Styling and theme management.
 - **JavaScript** – Interactive elements and dynamic rendering.
@@ -65,20 +65,20 @@ The **Electrical Symbols Preview** is designed to:
 
 ---
 
-## 🚀 Getting Started
+## Getting Started
 
-### 1️⃣ Clone the Repository
+### Clone the Repository
 ```bash
 git clone https://github.com/levii17/symbol-library.git
 cd symbol-library
 ```
 
-### 2️⃣ Open in Browser
+### Open in Browser
 Simply open `index.html` in your preferred browser.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 ```
 symbol-library/
 │
@@ -93,7 +93,7 @@ symbol-library/
 
 ---
 
-## 📌 Roadmap
+## Roadmap
 - [ ] Add **search functionality** for symbols.
 - [ ] Include **hover tooltips** with symbol descriptions.
 - [ ] Implement **SVG export** for symbols.
@@ -101,7 +101,7 @@ symbol-library/
 
 ---
 
-## 🤝 Contributing
+## Contributing
 Contributions are welcome!  
 If you’d like to improve the library or add new symbols:
 1. Fork the repo
@@ -111,13 +111,7 @@ If you’d like to improve the library or add new symbols:
 
 ---
 
-## 📜 License
-This project is licensed under the **MIT License** – see the [LICENSE](LICENSE) file for details.
-
----
-
-## 👤 Author
-**Mxolisi**  
-- GitHub: [levii17](https://github.com/levii17)
+## License
+This project is licensed under the **MIT License**, see the [LICENSE](LICENSE) file for details.
 
 ---
