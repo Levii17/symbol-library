@@ -22,26 +22,9 @@
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
   --symbol-stroke: #000;
-  --symbol-fill: none;
   --terminal-input: #ff4444;
   --terminal-output: #2ecc71;
   --terminal-io: #4444ff;
-}
-
-[data-theme='dark'] {
-  --bg: #1a1d23;
-  --surface: #242830;
-  --surface-alt: #2d323d;
-  --text: #d8dde5;
-  --heading: #ecf0f1;
-  --muted: #8892a0;
-  --accent: #4aa3e8;
-  --accent-hover: #5cb0f0;
-  --border: #363b46;
-  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.4);
-  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.6);
-  --symbol-stroke: #ecf0f1;
-  --symbol-fill: none;
 }
 
 body {
@@ -50,7 +33,6 @@ body {
   color: var(--text);
   background-color: var(--bg);
   padding: 20px;
-  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .container {
@@ -88,7 +70,7 @@ h2 {
 }
 
 /* ==========================================================================
-   Legend & Toolbar
+   Legend & toolbar
    ========================================================================== */
 .legend {
   display: flex;
@@ -147,21 +129,6 @@ h2 {
   border-color: var(--accent);
 }
 
-.theme-toggle {
-  padding: 10px 16px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  font-size: 14px;
-  cursor: pointer;
-  background: var(--surface);
-  color: var(--text);
-  transition: background 0.2s ease, border-color 0.2s ease;
-}
-
-.theme-toggle:hover {
-  border-color: var(--accent);
-}
-
 /* ==========================================================================
    Symbol grid & cards
    ========================================================================== */
@@ -216,29 +183,12 @@ h2 {
   max-height: 260px;
 }
 
-/* Make symbol strokes adapt to theme */
 .symbol-svg svg line,
 .symbol-svg svg rect,
 .symbol-svg svg circle,
 .symbol-svg svg path,
 .symbol-svg svg polygon {
   vector-effect: non-scaling-stroke;
-}
-
-[data-theme='dark'] .symbol-svg svg line,
-[data-theme='dark'] .symbol-svg svg rect,
-[data-theme='dark'] .symbol-svg svg circle[fill='black'],
-[data-theme='dark'] .symbol-svg svg circle[fill='#000'] {
-  stroke: var(--symbol-stroke);
-}
-
-[data-theme='dark'] .symbol-svg svg text {
-  fill: var(--symbol-stroke);
-}
-
-[data-theme='dark'] .symbol-svg svg circle[fill='black'],
-[data-theme='dark'] .symbol-svg svg circle[fill='#000'] {
-  fill: var(--symbol-stroke);
 }
 
 .connection-info {

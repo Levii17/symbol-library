@@ -38,8 +38,7 @@ such as [`muriel-schematics`](https://github.com/Levii17/muriel-schematics).
   Contactors, Contacts, Relays, Motors, Measurements, Lamps, Passive, Safety and Power
   Distribution.
 - **Live search** across names, categories and descriptions.
-- **Dark / light theme** with system preference detection and persistence.
-- **Structured terminal data** - every connection point has an `id`, `type`
+- **Light theme** - clean, high-contrast default suited for reference use.- **Structured terminal data** - every connection point has an `id`, `type`
   (`input` / `output` / `io`) and coordinates, ready for wiring logic.
 - **Reusable renderer** - `renderSymbol()` returns a plain SVG string with no framework
   dependency.
@@ -147,7 +146,6 @@ import { renderSymbol, renderSymbolCard } from 'symbol-library/renderer';
 
 - [x] Data-driven symbol catalogue
 - [x] Search
-- [x] Dark theme
 - [x] Reusable renderer module
 - [ ] Hover tooltips with pin descriptions
 - [ ] SVG / PNG export per symbol

@@ -4,28 +4,6 @@ import { groupByCategory, searchSymbols } from './dataService.js';
 const container = document.getElementById('symbols-container');
 const emptyState = document.getElementById('empty-state');
 const searchInput = document.getElementById('symbol-search');
-const themeToggle = document.getElementById('theme-toggle');
-
-/* ------------------------------------------------------------------ theme */
-
-const THEME_KEY = 'symbol-library-theme';
-
-function applyTheme(theme) {
-  document.documentElement.setAttribute('data-theme', theme);
-  themeToggle.textContent = theme === 'dark' ? '☀️ Light' : '🌙 Dark';
-  localStorage.setItem(THEME_KEY, theme);
-}
-
-function initTheme() {
-  const stored = localStorage.getItem(THEME_KEY);
-  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-  applyTheme(stored || (prefersDark ? 'dark' : 'light'));
-}
-
-themeToggle.addEventListener('click', () => {
-  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-  applyTheme(next);
-});
 
 /* ------------------------------------------------------------- rendering */
 
@@ -53,6 +31,5 @@ searchInput.addEventListener('input', (e) => {
 /* ---------------------------------------------------------------- boot */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initTheme();
   renderLibrary();
 });
