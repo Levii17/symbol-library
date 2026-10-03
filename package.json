@@ -1,0 +1,41 @@
+{
+  "name": "symbol-library",
+  "version": "2.0.1",
+  "description": "A data-driven library of electrical schematic symbols (SANS / IEC conventions).",
+  "type": "module",
+  "main": "src/data/index.js",
+  "exports": {
+    ".": "./src/data/index.js",
+    "./renderer": "./src/js/symbolRenderer.js"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "format": "prettier --write ."
+  },
+  "keywords": [
+    "electrical",
+    "schematics",
+    "sans",
+    "symbols",
+    "svg",
+    "engineering"
+  ],
+  "author": "Mxolisi",
+  "license": "MIT",
+  "devDependencies": {
+  "@eslint/js": "^9.36.0",
+  "eslint": "^9.36.0",
+  "jsdom": "^25.0.1",
+  "prettier": "^3.3.3",
+  "vite": "^6.0.0",
+  "vitest": "^4.1.11"
+},
+  "allowScripts": {
+    "esbuild@0.25.12": true
+  }
+}
