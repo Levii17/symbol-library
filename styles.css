@@ -1,167 +1,352 @@
-/* styles.css */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==========================================================================
+   Base
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8f9fa;
+  --surface: #ffffff;
+  --surface-alt: #f1f8ff;
+  --text: #333;
+  --heading: #2c3e50;
+  --muted: #7f8c8d;
+  --accent: #3498db;
+  --accent-hover: #2980b9;
+  --border: #e0e6ed;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+  --symbol-stroke: #000;
+  --symbol-fill: none;
+  --terminal-input: #ff4444;
+  --terminal-output: #2ecc71;
+  --terminal-io: #4444ff;
+}
+
+[data-theme='dark'] {
+  --bg: #1a1d23;
+  --surface: #242830;
+  --surface-alt: #2d323d;
+  --text: #d8dde5;
+  --heading: #ecf0f1;
+  --muted: #8892a0;
+  --accent: #4aa3e8;
+  --accent-hover: #5cb0f0;
+  --border: #363b46;
+  --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.6);
+  --symbol-stroke: #ecf0f1;
+  --symbol-fill: none;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: #333;
-    background-color: #f8f9fa;
-    padding: 20px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: var(--text);
+  background-color: var(--bg);
+  padding: 20px;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 15px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+.brand-ascii {
+  text-align: center;
+  font-size: 11px;
+  line-height: 1.1;
+  color: var(--muted);
+  margin: 0 0 10px;
+  overflow-x: auto;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 30px;
 }
 
 h1 {
-    text-align: center;
-    margin: 20px 0;
-    color: #2c3e50;
-    font-size: 2.2rem;
+  margin: 10px 0 15px;
+  color: var(--heading);
+  font-size: 2.2rem;
 }
 
 h2 {
-    margin: 30px 0 20px;
-    padding-bottom: 10px;
-    border-bottom: 2px solid #3498db;
-    color: #2c3e50;
-    grid-column: 1 / -1;
+  margin: 30px 0 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--accent);
+  color: var(--heading);
+  grid-column: 1 / -1;
 }
 
+/* ==========================================================================
+   Legend & Toolbar
+   ========================================================================== */
+.legend {
+  display: flex;
+  justify-content: center;
+  gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+}
+
+.legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1.5px solid #fff;
+}
+
+.dot-input {
+  background: var(--terminal-input);
+}
+.dot-output {
+  background: var(--terminal-output);
+}
+.dot-io {
+  background: var(--terminal-io);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.search-input {
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  min-width: 260px;
+  background: var(--surface);
+  color: var(--text);
+  transition: border-color 0.2s ease;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.theme-toggle {
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  background: var(--surface);
+  color: var(--text);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-toggle:hover {
+  border-color: var(--accent);
+}
+
+/* ==========================================================================
+   Symbol grid & cards
+   ========================================================================== */
 .symbols-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+.symbol-category {
+  display: contents;
 }
 
 .symbol-card {
-    background: white;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    height: 100%;
+  background: var(--surface);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
 .symbol-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
 }
 
 .symbol-name {
-    font-weight: 600;
-    padding: 15px;
-    background: #2c3e50;
-    color: white;
-    text-align: center;
-    font-size: 1.1rem;
+  font-weight: 600;
+  padding: 15px;
+  background: var(--heading);
+  color: #fff;
+  text-align: center;
+  font-size: 1.05rem;
 }
 
 .symbol-svg {
-    display: block;
-    margin: 0 auto;
-    padding: 20px;
-    max-width: 100%;
-    height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  flex: 1 1 auto;
+  min-height: 200px;
+}
+
+.symbol-svg svg {
+  width: 100%;
+  height: 100%;
+  max-width: 250px;
+  max-height: 260px;
+}
+
+/* Make symbol strokes adapt to theme */
+.symbol-svg svg line,
+.symbol-svg svg rect,
+.symbol-svg svg circle,
+.symbol-svg svg path,
+.symbol-svg svg polygon {
+  vector-effect: non-scaling-stroke;
+}
+
+[data-theme='dark'] .symbol-svg svg line,
+[data-theme='dark'] .symbol-svg svg rect,
+[data-theme='dark'] .symbol-svg svg circle[fill='black'],
+[data-theme='dark'] .symbol-svg svg circle[fill='#000'] {
+  stroke: var(--symbol-stroke);
+}
+
+[data-theme='dark'] .symbol-svg svg text {
+  fill: var(--symbol-stroke);
+}
+
+[data-theme='dark'] .symbol-svg svg circle[fill='black'],
+[data-theme='dark'] .symbol-svg svg circle[fill='#000'] {
+  fill: var(--symbol-stroke);
 }
 
 .connection-info {
-    padding: 15px;
-    background: #f1f8ff;
-    text-align: center;
-    font-size: 0.9rem;
-    color: #555;
-    margin-top: auto;
+  padding: 15px;
+  background: var(--surface-alt);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text);
+  margin-top: auto;
 }
 
-/* Terminal point styles */
+/* ==========================================================================
+   Terminals (rendered from data)
+   ========================================================================== */
 .terminal-input {
-    fill: #ff4444;
-    stroke: white;
-    stroke-width: 1.5;
+  fill: var(--terminal-input);
+  stroke: #fff;
+  stroke-width: 1.5;
 }
-
 .terminal-output {
-    fill: #44ff44;
-    stroke: white;
-    stroke-width: 1.5;
+  fill: var(--terminal-output);
+  stroke: #fff;
+  stroke-width: 1.5;
+}
+.terminal-io {
+  fill: var(--terminal-io);
+  stroke: #fff;
+  stroke-width: 1.5;
 }
 
-.terminal-io {
-    fill: #4444ff;
-    stroke: white;
-    stroke-width: 1.5;
+.terminal-label {
+  font-family: Arial, sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  pointer-events: none;
+}
+.terminal-label-input {
+  fill: var(--terminal-input);
+}
+.terminal-label-output {
+  fill: var(--terminal-output);
+}
+.terminal-label-io {
+  fill: var(--terminal-io);
+}
+
+/* ==========================================================================
+   Utility / misc
+   ========================================================================== */
+.empty-state {
+  text-align: center;
+  color: var(--muted);
+  font-style: italic;
+  padding: 40px 0;
 }
 
 .site-footer {
-    text-align: center;
-    margin-top: 50px;
-    padding: 20px;
-    color: #7f8c8d;
-    font-size: 0.9rem;
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+  color: var(--muted);
+  font-size: 0.9rem;
 }
 
 .site-footer a {
-    color: #3498db;
-    text-decoration: none;
+  color: var(--accent);
+  text-decoration: none;
 }
 
 .site-footer a:hover {
-    text-decoration: underline;
+  text-decoration: underline;
 }
 
-/* Responsive adjustments */
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
 @media (max-width: 768px) {
-    .symbols-grid {
-        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-        gap: 20px;
-    }
-    
-    h1 {
-        font-size: 1.8rem;
-    }
+  .symbols-grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  h1 {
+    font-size: 1.8rem;
+  }
+  .brand-ascii {
+    font-size: 8px;
+  }
 }
 
 @media (max-width: 576px) {
-    body {
-        padding: 15px;
-    }
-    
-    .symbols-grid {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    
-    .symbol-card {
-        max-width: 100%;
-    }
-    
-    h1 {
-        font-size: 1.6rem;
-    }
-    
-    h2 {
-        font-size: 1.3rem;
-    }
-}
-
-/* Section styling for better organization */
-section {
-    margin-bottom: 40px;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 25px;
-    grid-column: 1 / -1;
-}
-
-section h2 {
-    grid-column: 1 / -1;
+  body {
+    padding: 15px;
+  }
+  .symbols-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  .symbol-card {
+    max-width: 100%;
+  }
+  h1 {
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  .search-input {
+    min-width: 200px;
+    flex: 1;
+  }
 }
