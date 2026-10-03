@@ -28,13 +28,14 @@
   "author": "Mxolisi",
   "license": "MIT",
   "devDependencies": {
-  "@eslint/js": "^9.36.0",
-  "eslint": "^9.36.0",
-  "jsdom": "^25.0.1",
-  "prettier": "^3.3.3",
-  "vite": "^6.0.0",
-  "vitest": "^4.1.11"
-},
+    "@eslint/js": "^9.36.0",
+    "eslint": "^9.36.0",
+    "globals": "^17.13.0",
+    "jsdom": "^25.0.1",
+    "prettier": "^3.3.3",
+    "vite": "^6.0.0",
+    "vitest": "^4.1.11"
+  },
   "allowScripts": {
     "esbuild@0.25.12": true
   }
