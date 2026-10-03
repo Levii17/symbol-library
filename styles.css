@@ -21,7 +21,14 @@
   --border: #e0e6ed;
   --shadow-sm: 0 4px 15px rgba(0, 0, 0, 0.08);
   --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
-  --symbol-stroke: #000;
+
+  /* Wire colours (semantic — change these to re-skin every phase wire) */
+  --phase-l1: #cc0000;
+  --phase-l2: #ff8800;
+  --phase-l3: #0066cc;
+  --phase-n: #000000;
+
+  /* Terminal dot colours */
   --terminal-input: #ff4444;
   --terminal-output: #2ecc71;
   --terminal-io: #4444ff;
@@ -147,7 +154,9 @@ h2 {
   border-radius: 10px;
   overflow: hidden;
   box-shadow: var(--shadow-sm);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -167,27 +176,34 @@ h2 {
   font-size: 1.05rem;
 }
 
+/*
+ * The renderer auto-fits each symbol's viewBox to its content, so the card
+ * only needs a light padding — no more fighting mismatched intrinsic scales.
+ */
 .symbol-svg {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 20px;
+  padding: 10px;
   flex: 1 1 auto;
-  min-height: 200px;
+  min-height: 210px;
 }
 
 .symbol-svg svg {
   width: 100%;
   height: 100%;
-  max-width: 250px;
+  max-width: 260px;
   max-height: 260px;
+  overflow: visible;
 }
 
+/* Keep stroke thickness in screen pixels regardless of viewBox scale */
 .symbol-svg svg line,
 .symbol-svg svg rect,
 .symbol-svg svg circle,
 .symbol-svg svg path,
-.symbol-svg svg polygon {
+.symbol-svg svg polygon,
+.symbol-svg svg polyline {
   vector-effect: non-scaling-stroke;
 }
 
@@ -198,6 +214,22 @@ h2 {
   font-size: 0.9rem;
   color: var(--text);
   margin-top: auto;
+}
+
+/* ==========================================================================
+   Wires (semantic phase colours)
+   ========================================================================== */
+.phase-l1 {
+  stroke: var(--phase-l1);
+}
+.phase-l2 {
+  stroke: var(--phase-l2);
+}
+.phase-l3 {
+  stroke: var(--phase-l3);
+}
+.phase-n {
+  stroke: var(--phase-n);
 }
 
 /* ==========================================================================
